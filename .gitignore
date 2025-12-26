@@ -1,0 +1,26 @@
+# Python / Virtual Env
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment variables
+.env
+
+# Vector stores (generated)
+storage/faiss/
+*.faiss
+*.pkl
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Logs / temp
+*.log
+*.tmp
+
+# UV / Python tooling
+.uv/

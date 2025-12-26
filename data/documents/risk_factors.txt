@@ -1,0 +1,5 @@
+Market risk refers to the possibility of losses due to changes in overall market conditions.
+
+Interest rate risk affects investments such as bonds when interest rates rise or fall.
+
+Company-specific risk arises from internal issues such as management decisions, competition, or product failures.

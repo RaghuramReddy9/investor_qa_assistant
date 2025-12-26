@@ -1,0 +1,15 @@
+[project]
+name = "investor-qa-assistant"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "faiss-cpu>=1.13.2",
+    "langchain>=1.2.0",
+    "langchain-community>=0.4.1",
+    "langchain-google-genai>=4.1.2",
+    "python-dotenv>=1.2.1",
+    "streamlit>=1.52.2",
+    "tqdm>=4.67.1",
+]
