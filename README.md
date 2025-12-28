@@ -36,8 +36,6 @@ This project addresses that gap by combining **offline knowledge** with **live m
 
 The system is designed as a **Hybrid Live RAG pipeline** with explicit routing logic to ensure the correct data source is used for each user query.
 
----
-
 ### High-Level Flow
 
 1. **User submits a question**
@@ -47,8 +45,6 @@ The system is designed as a **Hybrid Live RAG pipeline** with explicit routing l
    - **Live data path** for time-sensitive market or news-related queries
 4. The selected context is passed to a **Large Language Model (LLM)** for grounded answer generation
 5. If sufficient information is not available, the system **fails safely** instead of hallucinating
-
----
 
 ### Offline RAG Path (Vector-Based)
 
@@ -63,8 +59,6 @@ Steps:
 - Relevant chunks are retrieved via semantic similarity
 - Retrieved context is passed to the LLM for answer generation
 
----
-
 ### Live Data Path (Real-Time News)
 
 Used for:
@@ -78,8 +72,6 @@ Steps:
 - Raw results are lightly filtered for relevance
 - The LLM summarizes the live context into a user-facing answer
 - If live data is insufficient, the system explicitly says so
-
----
 
 ### Safety & Reliability Principles
 
@@ -104,14 +96,11 @@ This project intentionally uses a **minimal but production-relevant stack**, foc
   - Grounded answer generation
 - Not used for uncontrolled free-form answering
 
----
-
 ### Embeddings
 - **Gemini Embedding Model**
 - Used consistently for both document indexing and query embedding
 - Ensures semantic compatibility within the vector database
 
----
 
 ### Vector Database
 - **FAISS (local)**
@@ -119,15 +108,11 @@ This project intentionally uses a **minimal but production-relevant stack**, foc
 - Clearly separates **generated artifacts** from source code
 - Can be replaced with managed vector databases (Pinecone, Weaviate) without changing system logic
 
----
-
 ### Live Data Source
 - **External News API**
 - Provides real-time signals for market and stock-related questions
 - Treated as a **noisy signal**, not a source of truth
 - All live data is filtered and summarized before being shown to the user
-
----
 
 ### Orchestration & Routing
 - **LLM-based routing logic**
@@ -135,8 +120,6 @@ This project intentionally uses a **minimal but production-relevant stack**, foc
   - Offline vector retrieval
   - Live external data
 - Keeps decision-making explicit and testable
-
----
 
 ### Application Structure
 - Modular Python project (`src/` layout)
@@ -160,16 +143,12 @@ These questions are answered using the internal vector database:
 - `What is market risk?`
 - `What does Tesla do as a company?`
 
----
-
 ### Live Data (Real-Time News)
 These questions trigger live data retrieval and summarization:
 
 - `Latest news about Tesla stock`
 - `What happened to Nvidia this week?`
 - `Recent market news affecting AI companies`
-
----
 
 ### Safe Fallback Behavior
 If sufficient live information is not available, the system responds safely:
@@ -190,8 +169,6 @@ This prevents hallucination and misleading answers.
 - API keys for:
   - Gemini (Google Generative AI)
   - News API (for live data)
-
----
 
 ### Setup
 
@@ -215,8 +192,6 @@ This prevents hallucination and misleading answers.
     Create a .env file in the project root:
     ```
 
----
-
 ### Build the Vector Store (Offline RAG)
 
 Run the ingestion pipeline once:
@@ -224,8 +199,6 @@ Run the ingestion pipeline once:
 python src/ingest.py
 ```
 python src/ingest.py
-
----
 
 ### Run the Live RAG Assistant
 Run the assistant as a module:
@@ -235,8 +208,6 @@ python -m src.assistant
 python -m src.assistant
 - static knowledge questions
 - static knowledge questions
-
----
 
 ### Safety Notes
 - This system `does not provide financial advice`
